@@ -1,17 +1,17 @@
 [
   {
-    "objectID": "projects/index.html",
-    "href": "projects/index.html",
-    "title": "Projects",
-    "section": "",
-    "text": "hello testing\n\n\n\n\n\n\n\n\n\nNo matching items"
-  },
-  {
     "objectID": "blog/index.html",
     "href": "blog/index.html",
     "title": "Blog",
     "section": "",
     "text": "Creating My Blog with Quarto\n\n\n\nQuarto\n\nBlogging\n\nGitHub Pages\n\n\n\nSetting up my personal blog using Quarto and GitHub Pages.\n\n\n\n\n\n\nJun 27, 2026\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "projects/index.html",
+    "href": "projects/index.html",
+    "title": "Projects",
+    "section": "",
+    "text": "hello testing\n\n\n\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "blog/create-blog/index.html",
@@ -32,28 +32,42 @@
     "href": "blog/create-blog/index.html#why-choose-this",
     "title": "Creating My Blog with Quarto",
     "section": "Why choose this?",
-    "text": "Why choose this?\n\nEasy to convert Markdown files and Jupyter notebooks into websites.\nSupports code execution, mathematical equations, and interactive content.\nWorks well with GitHub Pages for free hosting.\nProvides a clean and professional structure for technical blogs.\n\n\n\n\n\n\n\nImportant\n\n\n\nI am setting this up on a Debian-based Linux distribution. The installation steps will differ slightly for other operating systems."
+    "text": "Why choose this?\n\nEasy to convert Markdown files and Jupyter notebooks into websites.\nSupports code execution, mathematical equations, and interactive content.\nWorks well with GitHub Pages for free hosting.\nProvides a clean and professional structure for technical blogs.\n\n\n\n\n\n\n\nImportant\n\n\n\n\n\nI am setting this up on a Debian-based Linux distribution. The installation steps will differ slightly for other operating systems.\nIn this tutorial i used .qmd file extentions but you can use .md or .ipynb also but setting .yml config is important."
   },
   {
     "objectID": "blog/create-blog/index.html#step-1-install-quarto",
     "href": "blog/create-blog/index.html#step-1-install-quarto",
     "title": "Creating My Blog with Quarto",
     "section": "Step 1: Install Quarto",
-    "text": "Step 1: Install Quarto\ncurl -LO https://quarto.org/download/latest/quarto-linux-amd64.deb\nsudo apt install ./quarto-linux-amd64.deb\nVerify the installation:\nquarto --version"
+    "text": "Step 1: Install Quarto\ncurl -LO https://quarto.org/download/latest/quarto-linux-amd64.deb\nsudo apt install ./quarto-linux-amd64.deb\nVerify the installation:\nquarto --version\n\nif sucessful, will return it’s version if not go and check installation for your system."
   },
   {
     "objectID": "blog/create-blog/index.html#step-2-create-a-new-website",
     "href": "blog/create-blog/index.html#step-2-create-a-new-website",
     "title": "Creating My Blog with Quarto",
     "section": "Step 2: Create a new website",
-    "text": "Step 2: Create a new website\nquarto create project website my-blog\ncd my-blog\nquarto preview"
+    "text": "Step 2: Create a new website\nquarto create project website my-website\ncd my-website\nquarto preview\nThat’s it your project directory ready. you write your blogs as .md files in my-blog/posts dir\nnow you can skip to deployment or see how to create full website\n\n\n\n\n\n\nNote\n\n\n\nThis is extra if you like to create full website with coustom webpages within it(you can create blogs as one of the them)."
   },
   {
-    "objectID": "blog/create-blog/index.html#step-3-coustimize",
-    "href": "blog/create-blog/index.html#step-3-coustimize",
+    "objectID": "blog/create-blog/index.html#step-3-create-dir-structure",
+    "href": "blog/create-blog/index.html#step-3-create-dir-structure",
     "title": "Creating My Blog with Quarto",
-    "section": "Step 3: Coustimize",
-    "text": "Step 3: Coustimize\nEdit index.qmd,\n  ---\n  title: \"Creating My Blog with Quarto\"\n  date: 2026-06-27\n  description: \"Setting up my personal blog using Quarto and GitHub Pages.\"\n  categories:\n    - Quarto\n    - Blogging\n    - GitHub Pages\n  image: Quatro_blog.jpg\n  ---\nthis is yaml for this webpage"
+    "section": "Step 3: Create dir structure",
+    "text": "Step 3: Create dir structure\nIn your project directory\ncreate directories\nmkdir -p ./projects ./blogs/create-blog ./notes ./assets\ncreate files\ntouch _quarto.yml styles.css index.qmd about.qmd resume.qmd\n\n# Create index files for your section landing pages\ntouch blog/index.qmd projects/index.qmd notes/index.qmd\n\n# Create index files for individual blog posts\ntouch blog/create-blog/index.qmd"
+  },
+  {
+    "objectID": "blog/create-blog/index.html#step-4-customisation",
+    "href": "blog/create-blog/index.html#step-4-customisation",
+    "title": "Creating My Blog with Quarto",
+    "section": "Step 4: customisation",
+    "text": "Step 4: customisation\n\nif open dir in editor like vscode it will easy\n\n\nEdit _quarto.yml or with yaml extenstion,\n\nproject:\ntype: website\noutput-dir: _site\n\nwebsite:\ntitle: \"Priyan A.\"\nnavbar:\n  left:\n    - href: index.qmd\n      text: Home\n    - href: about.qmd\n      text: About\n    - href: projects/index.qmd\n      text: Projects\n    - href: blog/index.qmd\n      text: Blog\n    - href: notes/index.qmd\n      text: Notes\n  right:\n    - href: resume.qmd\n      text: Resume\n    - icon: github\n      href: https://github.com/Priyan503\n\nformat:\nhtml:\n  from: markdown+mark\n  theme: Cyborg\n  css: styles.css\n  toc: true\n\ninside blog/index.qmd paste this at top &gt; edit title, subtile if you want\n\n---\ntitle: \"Blog\"\nsubtitle: \" Give subtitle\"\nlisting:\n  contents: \n    - \"*/index.qmd\" # Scans all subfolders for index.qmd files\n  type: grid\n  sort: \"date desc\"\n  categories: true # Enables tags/filtering at the top right\n---\n\ninside blog/create-blog/index.qmd paste this at top &gt; edit tile, date, description and categories according to your bolg and set path to image if need one.\n\n---\ntitle: \"Your title\"\ndate: data\ndescription: \" describe about a blog in line\"\ncategories:\n  - Quarto\n  - Blogging\n  - GitHub Pages\nimage: ../../assets/images/Quatro_blog.jpg\n\n---\n\nnow you can write your content in blog/create-blog/index.qmd below the yml config.\n\n\nTo create new blog create new folder in blog/ with your blog name create index.qmd in it and follow same.\n\n\nyou can create new blog, notes, project or any other you can follow similar structure."
+  },
+  {
+    "objectID": "blog/create-blog/index.html#step-5-deployment",
+    "href": "blog/create-blog/index.html#step-5-deployment",
+    "title": "Creating My Blog with Quarto",
+    "section": "step 5: Deployment",
+    "text": "step 5: Deployment\n\nTo publish i used github pages which comes with free domain if created your project dir as [your github user name].github.io\n\nmkdir -p .github/workflows\ntouch .github/wokflows/publish.yml\n\nIn publish.yml paste this &gt; what it does publish your pages each time you push in your main branch.\n\nname: Quarto Publish\n\non:\n  push:\n    branches: [ main, master ]\n\njobs:\n  build-deploy:\n    runs-on: ubuntu-latest\n    permissions:\n      contents: write\n    steps:\n      - name: Check out repository\n        uses: actions/checkout@v4\n\n      - name: Set up Quarto\n        uses: quarto-dev/quarto-actions/setup@v2\n\n      # Required to execute .ipynb files if you have them\n      - name: Set up Python\n        uses: actions/setup-python@v5\n        with:\n          python-version: '3.10'\n          cache: 'pip'\n\n      - name: Install Jupyter Core Dependencies\n        run: pip install -r requirements.txt\n\n      - name: Render and Publish to GitHub Pages\n        uses: quarto-dev/quarto-actions/publish@v2\n        with:\n          target: gh-pages\n        env:\n          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}\n\nnow you can push into github and see Deployment section for debugging. if sucessful your site is published in domain [your github user name].github.io.\n\nExplore and Enjoy."
   },
   {
     "objectID": "index.html",
