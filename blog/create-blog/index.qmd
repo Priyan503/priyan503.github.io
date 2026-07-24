@@ -25,8 +25,14 @@ image: ../../assets/images/Quatro_blog.jpg
 
 
 ::: {.callout-important}
-***I am setting this up on a Debian-based Linux distribution. The installation steps will differ slightly for other operating systems.***
+***
+1. I am setting this up on a Debian-based Linux distribution. The installation steps will differ slightly for other operating systems.
+
+2. In this tutorial i used `.qmd` file extentions but you can use `.md` or `.ipynb` also but setting `.yml` config is important.
+
+***
 :::
+
 
 ## Step 1: Install Quarto
 
@@ -40,29 +46,171 @@ sudo apt install ./quarto-linux-amd64.deb
 ```bash
 quarto --version
 ```
+> if sucessful, will return it's version if not go and check installation for your system.
 
 ## Step 2: Create a new website
 
 ```bash
-quarto create project website my-blog
-cd my-blog
+quarto create project website my-website
+cd my-website
 quarto preview
 ```
+That's it your project directory ready. you write your blogs as `.md` files in `my-blog/posts` dir
 
-## Step 3: Coustimize
+now you can [skip](step-5:-deployment) to deployment or see how to create full website 
 
-  Edit index.qmd, 
+
+::: {.callout-note}
+***This is extra if you like to create full website with coustom webpages within it(you can create blogs as one of the them).***
+:::
+
+
+# 
+I am providing  instruction to create similar site as this.
+
+## Step 3: Create dir structure
+
+In your project directory
+
+create directories
+```bash
+mkdir -p ./projects ./blogs/create-blog ./notes ./assets
+```
+
+create files
+```bash
+touch _quarto.yml styles.css index.qmd about.qmd resume.qmd
+
+# Create index files for your section landing pages
+touch blog/index.qmd projects/index.qmd notes/index.qmd
+
+# Create index files for individual blog posts
+touch blog/create-blog/index.qmd
+
+```
+
+## Step 4: customisation
+
+> if open dir in editor like vscode it will easy
+
+> Edit `_quarto.yml` or with yaml extenstion, 
     
   ```yaml
-    ---
-    title: "Creating My Blog with Quarto"
-    date: 2026-06-27
-    description: "Setting up my personal blog using Quarto and GitHub Pages."
-    categories:
-      - Quarto
-      - Blogging
-      - GitHub Pages
-    image: Quatro_blog.jpg
-    ---
+project:
+  type: website
+  output-dir: _site
+
+website:
+  title: "Priyan A."
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - href: about.qmd
+        text: About
+      - href: projects/index.qmd
+        text: Projects
+      - href: blog/index.qmd
+        text: Blog
+      - href: notes/index.qmd
+        text: Notes
+    right:
+      - href: resume.qmd
+        text: Resume
+      - icon: github
+        href: https://github.com/Priyan503
+
+format:
+  html:
+    from: markdown+mark
+    theme: Cyborg
+    css: styles.css
+    toc: true
   ```
-  this is yaml for this webpage
+
+> inside `blog/index.qmd` paste this at top 
+>> edit title, subtile if you want
+
+```yml
+---
+title: "Blog"
+subtitle: " Give subtitle"
+listing:
+  contents: 
+    - "*/index.qmd" # Scans all subfolders for index.qmd files
+  type: grid
+  sort: "date desc"
+  categories: true # Enables tags/filtering at the top right
+---
+
+```
+> inside `blog/create-blog/index.qmd` paste this at top
+>> edit tile, date, description and categories according to your bolg and set path to image if need one.
+```yml
+---
+title: "Your title"
+date: data
+description: " describe about a blog in line"
+categories:
+  - Quarto
+  - Blogging
+  - GitHub Pages
+image: ../../assets/images/Quatro_blog.jpg
+
+---
+```
+> now you can write your content in `blog/create-blog/index.qmd` below the `yml` config. 
+
+> To create new blog create new folder in `blog/` with your blog name create `index.qmd` in it and follow same.  
+
+> you can create new blog, notes, project or any other you can follow similar structure.
+
+
+## step 5: Deployment
+> To publish i used `github pages` which comes with free domain if created your project dir as `[your github user name].github.io`
+
+```bash
+mkdir -p .github/workflows
+touch .github/wokflows/publish.yml
+```
+> In publish.yml paste this
+>> what it does publish your pages each time you push in your main branch.
+```yml
+name: Quarto Publish
+
+on:
+  push:
+    branches: [ main, master ]
+
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Quarto
+        uses: quarto-dev/quarto-actions/setup@v2
+
+      # Required to execute .ipynb files if you have them
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+          cache: 'pip'
+
+      - name: Install Jupyter Core Dependencies
+        run: pip install -r requirements.txt
+
+      - name: Render and Publish to GitHub Pages
+        uses: quarto-dev/quarto-actions/publish@v2
+        with:
+          target: gh-pages
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+```
+> now you can push into github and see `Deployment` section for debugging. if sucessful your site is published in domain `[your github user name].github.io`. 
+
+Explore and Enjoy.
