@@ -1,0 +1,42 @@
+# Priyan A
+
+## About Me
+
+### Tech Enthusiast
+
+I'm passionate about **building projects** that solve real-world problems. When I'm not working on projects, you'll probably find me solving problems on **[LeetCode](https://leetcode.com/u/Priyan_A/)**, managing my home server, ricing Arch Linux *(I use Arch, by the way 😄)*, or exploring new **technologies**. You can also follow my journey through my [blog](https://priyan503.github.io/blog/).
+
+My primary areas of interest include:
+
+* Internet of Things (IoT)
+* Artificial Intelligence
+* Operating Systems (especially Linux)
+* Microprocessors & Embedded Systems
+* Computer Networks
+* Web Technologies
+* Game Development
+
+---
+
+## Education
+
+Currently pursuing a **B.Tech in Computer Science and Engineering** with a specialization in **Internet of Things (IoT)** at **Shiv Nadar University Chennai**.
+
+---
+
+## Experience
+
+I'm currently a **fresher** seeking opportunities to apply my knowledge and gain real-world experience through internships and collaborative projects.
+
+*P.S. If you're here because you're hiring... maybe this is your sign. 😄*
+
+---
+
+## Contact
+
+**Email:** [priyan0987a@gmail.com](mailto:priyan0987a@gmail.com)
+*(Please don't spam.)*
+
+**GitHub:** [view](https://github.com/priyan503)
+
+**LinkedIn:** [view](https://linkedin.com/in/priyan-a-7a633a321)
