@@ -7,6 +7,41 @@
     "text": "Creating My Blog with Quarto\n\n\n\nQuarto\n\nBlogging\n\nGitHub Pages\n\n\n\nSetting up my personal blog using Quarto and GitHub Pages.\n\n\n\n\n\n\nJun 27, 2026\n\n\n\n\n\n\nNo matching items"
   },
   {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "Priyan A",
+    "section": "",
+    "text": "I’m passionate about building projects that solve real-world problems. When I’m not working on projects, you’ll probably find me solving problems on LeetCode, managing my home server, ricing Arch Linux (I use Arch, by the way 😄), or exploring new technologies. You can also follow my journey through my blog.\nMy primary areas of interest include:\n\nInternet of Things (IoT)\nArtificial Intelligence\nOperating Systems (especially Linux)\nMicroprocessors & Embedded Systems\nComputer Networks\nWeb Technologies\nGame Development\n\n\n\n\n\n\nCurrently pursuing a B.Tech in Computer Science and Engineering with a specialization in Internet of Things (IoT) at Shiv Nadar University Chennai.\n\n\n\n\nI’m currently a fresher seeking opportunities to apply my knowledge and gain real-world experience through internships and collaborative projects.\nP.S. If you’re here because you’re hiring… maybe this is your sign. 😄\n\n\n\n\nEmail: priyan0987a@gmail.com (Please don’t spam.)\nGitHub: view\nLinkedIn: view"
+  },
+  {
+    "objectID": "about.html#about-me",
+    "href": "about.html#about-me",
+    "title": "Priyan A",
+    "section": "",
+    "text": "I’m passionate about building projects that solve real-world problems. When I’m not working on projects, you’ll probably find me solving problems on LeetCode, managing my home server, ricing Arch Linux (I use Arch, by the way 😄), or exploring new technologies. You can also follow my journey through my blog.\nMy primary areas of interest include:\n\nInternet of Things (IoT)\nArtificial Intelligence\nOperating Systems (especially Linux)\nMicroprocessors & Embedded Systems\nComputer Networks\nWeb Technologies\nGame Development"
+  },
+  {
+    "objectID": "about.html#education",
+    "href": "about.html#education",
+    "title": "Priyan A",
+    "section": "",
+    "text": "Currently pursuing a B.Tech in Computer Science and Engineering with a specialization in Internet of Things (IoT) at Shiv Nadar University Chennai."
+  },
+  {
+    "objectID": "about.html#experience",
+    "href": "about.html#experience",
+    "title": "Priyan A",
+    "section": "",
+    "text": "I’m currently a fresher seeking opportunities to apply my knowledge and gain real-world experience through internships and collaborative projects.\nP.S. If you’re here because you’re hiring… maybe this is your sign. 😄"
+  },
+  {
+    "objectID": "about.html#contact",
+    "href": "about.html#contact",
+    "title": "Priyan A",
+    "section": "",
+    "text": "Email: priyan0987a@gmail.com (Please don’t spam.)\nGitHub: view\nLinkedIn: view"
+  },
+  {
     "objectID": "projects/index.html",
     "href": "projects/index.html",
     "title": "Projects",
@@ -74,6 +109,6 @@
     "href": "index.html",
     "title": "Priyan A.",
     "section": "",
-    "text": "Welcome\nexplore"
+    "text": "Welcome\nThis page is Still on development you can now veiw about and blog pages"
   }
 ]
